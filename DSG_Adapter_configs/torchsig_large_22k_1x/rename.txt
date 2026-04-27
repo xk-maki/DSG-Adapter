@@ -1,0 +1,71 @@
+import os
+
+def batch_rename_files():
+    # ================= 配置区域 =================
+    # 在这里填入你的文件夹路径
+    target_folder = r'D:\github_source\Swin-Transformer-Object-Detection\DSG_Adapter_configs\torchsig_large_22k_1x' 
+    
+    # 定义替换规则列表 (旧字符串, 新字符串)
+    # 如果新字符串为空 ""，则表示删除该字段
+    rules = [
+        ("tf_mona", "DSG-Adapter"),  # 规则1：替换
+        ("_w_o_scale", "")           # 规则2：删除
+    ]
+    # ===========================================
+
+    if not os.path.exists(target_folder):
+        print(f"❌ 错误：找不到文件夹 -> {target_folder}")
+        return
+
+    files = os.listdir(target_folder)
+    renamed_count = 0
+    to_rename = []
+
+    print(f"🔍 正在扫描文件夹: {target_folder} ...")
+    
+    # 1. 扫描并计算新文件名
+    for filename in files:
+        # 检查是否需要修改
+        needs_rename = False
+        new_filename = filename
+        
+        for old_str, new_str in rules:
+            if old_str in new_filename:
+                new_filename = new_filename.replace(old_str, new_str)
+                needs_rename = True
+        
+        if needs_rename:
+            to_rename.append((filename, new_filename))
+
+    if not to_rename:
+        print(f"✅ 未找到需要重命名的文件。")
+        return
+
+    # 2. 预览修改结果
+    print(f"\n📋 发现 {len(to_rename)} 个文件需要修改：")
+    print("-" * 70)
+    for old, new in to_rename:
+        print(f"原文件名: {old}")
+        print(f"新文件名: {new}")
+        print("-" * 30)
+
+    # 3. 询问确认
+    confirm = input(f"\n❓ 确认执行重命名吗？(输入 y 确认，其他键取消): ")
+    
+    if confirm.lower() == 'y':
+        for filename, new_filename in to_rename:
+            old_path = os.path.join(target_folder, filename)
+            new_path = os.path.join(target_folder, new_filename)
+            
+            try:
+                os.rename(old_path, new_path)
+                renamed_count += 1
+            except Exception as e:
+                print(f"❌ 重命名失败 {filename}: {e}")
+        
+        print(f"\n🎉 完成！成功重命名了 {renamed_count} 个文件。")
+    else:
+        print("🚫 已取消操作。")
+
+if __name__ == "__main__":
+    batch_rename_files()
