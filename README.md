@@ -20,7 +20,7 @@ The repository contains three DSG-Adapter configurations corresponding to differ
 
 - **DSG-Adapter_attention**: corresponds to **DSG-Adapter†** in the paper.
 - **DSG-Adapter_mlp**: corresponds to **DSG-Adapter‡** in the paper.
-- **DSG-Adapter_attention_mlp**: corresponds to **DSG-Adapter*** in the paper.
+- **DSG-Adapter**: corresponds to **DSG-Adapter*** in the paper.
 
 ## Citation
 
