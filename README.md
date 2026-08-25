@@ -10,17 +10,17 @@ This repository contains the official implementation for the paper:
 
 ## Implementation Details
 
-The implementation of DSG-Adapter is developed based on the parameter-efficient fine-tuning framework **MoNA**:
+The implementation of DSG-Adapter is developed based on the parameter-efficient fine-tuning framework **Mona**:
 
-> MoNA: https://github.com/Leiyi-Hu/mona/tree/master
+> Mona: https://github.com/Leiyi-Hu/mona/tree/master
 
-We sincerely thank the authors of MoNA for their open-source contribution.
+We sincerely thank the authors of Mona for their open-source contribution.
 
 The repository contains three DSG-Adapter configurations corresponding to different adapter insertion strategies described in the paper:
 
-- **DSG-Adapter_attention**: corresponds to **DSG-Adapter†** in the paper, where adapters are inserted into the attention module.
-- **DSG-Adapter_mlp**: corresponds to **DSG-Adapter‡** in the paper, where adapters are inserted into the MLP module.
-- **DSG-Adapter_attention_mlp**: corresponds to **DSG-Adapter*** in the paper, where adapters are inserted into both attention and MLP modules.
+- **DSG-Adapter_attention**: corresponds to **DSG-Adapter†** in the paper.
+- **DSG-Adapter_mlp**: corresponds to **DSG-Adapter‡** in the paper.
+- **DSG-Adapter_attention_mlp**: corresponds to **DSG-Adapter*** in the paper.
 
 ## Citation
 
