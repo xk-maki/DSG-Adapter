@@ -30,6 +30,7 @@ The repository contains three DSG-Adapter configurations corresponding to differ
 Run training with the `DSG-Adapter_attention` configuration:
 
 ```bash
+# DSG-Adapter†
 python tools/train.py DSG_Adapter_configs/torchsig_base_22k_3x/torchsig_retinanet_swin_base_3x_full_rgb_imagenet_DSG-Adapter_attention.py \
     --work-dir exp_DSG-Adapter_attention
 ```
