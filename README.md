@@ -19,8 +19,6 @@ The dataset used in this work is available at:
 
 ## Implementation
 
-Our implementation is built upon the parameter-efficient fine-tuning framework [Mona](https://github.com/Leiyi-Hu/mona/tree/master). We thank the authors for releasing their code.
-
 This repository provides three DSG-Adapter variants corresponding to the adapter insertion strategies introduced in the paper:
 
 * **DSG-Adapter_attention** → **DSG-Adapter†**
